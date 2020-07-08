@@ -1,0 +1,7 @@
+puts@plt -> 0x8049030
+puts@got -> 0x804c00c
+puts@plt+6 -> 0x8049036
+
+scanf@plt -> 0x8049050
+scanf@got -> 0x804c014
+scanf@plt+6 -> 0x8049056
