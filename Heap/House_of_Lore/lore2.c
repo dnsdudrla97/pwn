@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
 char *ptr[20];
 int ptr_size[20];
 int heap_idx = 0;
