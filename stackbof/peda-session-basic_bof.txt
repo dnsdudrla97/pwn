@@ -1,10 +1,2 @@
-break *0x56556200
-
-
-
-
-
-
-
-
+tbreak main
 
