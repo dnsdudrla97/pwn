@@ -1,0 +1,42 @@
+.\"Libptrace manual page"
+.TH LIBPTRACE 3 "19 June 2007" "GNU" "Linux Programmer's Manual"
+.SH NAME
+libptrace \- process tracing library
+.SH SYNOPSIS
+.B #include <libptrace.h>
+.SH DESCRIPTION
+libptrace is a development library for process tracing. It is meant to be
+portable to both Linux and Windows platforms, sharing a common API.
+.SH SUMMARY
+.B int ptrace_open(struct ptrace_context *p, pid_t pid)
+.PD 0
+.PP
+.TP
+.B int ptrace_attach(struct ptrace_context *p, pid_t pid)
+Attaches to process identifier 'pid' and initializes the process tracing
+context 'p'.
+.PD
+.TP
+.B int ptrace_close(struct ptrace_context *p)
+.PD 0
+.PP
+.TP
+.B int ptrace_detach(struct ptrace_context *p)
+Detaches from the process described by the process tracing context 'p'.
+.PD
+.TP
+.B int ptrace_write(struct ptrace_context *p, void *dest, void *src, size_t len)
+Writes 'len' bytes from 'src' to the address 'dest' in the process
+described by 'p'.
+.TP
+.B int ptrace_read(struct ptrace_context *p, void *dest, void *src, size_t len)
+Reads 'len' bytes from the address 'src' in the process described by 'p'
+into 'dest'.
+.TP
+.B void *ptrace_malloc(struct ptrace_context *p, size_t len)
+Allocates a buffer of 'len' bytes somewhere in the process described by 'p'.
+Returns the address in the process described by 'p' on success, or NULL on
+failure.
+.TP
+.B const char *ptrace_errmsg(struct ptrace_context *p)
+
