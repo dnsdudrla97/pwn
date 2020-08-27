@@ -1,3 +1,2 @@
-break *main
-tbreak main
+break *main+0
 
