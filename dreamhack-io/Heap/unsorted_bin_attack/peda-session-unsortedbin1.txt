@@ -1,2 +1,12 @@
-break *0x400596
+tbreak main
+
+
+
+
+
+
+
+
+
+
 

